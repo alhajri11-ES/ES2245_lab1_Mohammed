@@ -1,0 +1,207 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMHHD2p9INWUd2smpsVQDYI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/alhajri11-ES/ES2245_lab1_Mohammed/blob/main/lab1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "XuoSMVadTaIj"
+      },
+      "outputs": [],
+      "source": [
+        "#ES2245 Lab1 Assignment\n",
+        "#Mohammed Al-Hajri\n",
+        "#01162026"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n"
+      ],
+      "metadata": {
+        "id": "eJjjxt25TgKm"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "depth_ft = 3500;\n",
+        "conversion_factor = 0.3048;\n",
+        "depth_m = depth_ft*conversion_factor;\n",
+        "print(\"The borehole depth is\",depth_m, \"meters.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a7QPeMS2TkCr",
+        "outputId": "4b4574c3-c451-441d-c927-df6b213ed345"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The borehole depth is 1066.8 meters.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "magnitudes = [2.4, 3.1, 1.8, 4.5, 2.9, 0.5, 3.3];\n",
+        "print(magnitudes[0]);\n",
+        "print(magnitudes[-1]);\n",
+        "magnitudes.append(5.1);\n",
+        "print(magnitudes);\n",
+        "print(len(magnitudes));"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dqa5KSO1UEmk",
+        "outputId": "e3f2b324-4c25-4285-9a33-51647a65a72e"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2.4\n",
+            "3.3\n",
+            "[2.4, 3.1, 1.8, 4.5, 2.9, 0.5, 3.3, 5.1]\n",
+            "8\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "total_magnitude = 0;\n",
+        "for m in magnitudes:\n",
+        "  total_magnitude += m;\n",
+        "  average_magnitude = total_magnitude/len(magnitudes);\n",
+        "print(total_magnitude);\n",
+        "print(average_magnitude);"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bRsWvsDLUH-D",
+        "outputId": "4620ac57-42e9-4d38-efcb-9c8597b75bc5"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "23.6\n",
+            "2.95\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for mag in magnitudes:\n",
+        "  if mag < 3.0:\n",
+        "    print(\"Magnitude\", mag, \"is Macro\");\n",
+        "  else:\n",
+        "    print(\"Magnitude\", mag, \"is Minor\");"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jElOiNQSULk-",
+        "outputId": "b337a8f9-609f-49ba-a1b5-5ed332c5dcc3"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Magnitude 2.4 is Macro\n",
+            "Magnitude 3.1 is Minor\n",
+            "Magnitude 1.8 is Macro\n",
+            "Magnitude 4.5 is Minor\n",
+            "Magnitude 2.9 is Macro\n",
+            "Magnitude 0.5 is Macro\n",
+            "Magnitude 3.3 is Minor\n",
+            "Magnitude 5.1 is Minor\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "depths = [0, 1, 2, 3, 4, 5];\n",
+        "temperatures = [];\n",
+        "\n",
+        "surface_temp = 15;\n",
+        "gradient = 25;\n",
+        "\n",
+        "for d in depths:\n",
+        "  temp = surface_temp + (gradient*d);\n",
+        "  temperatures.append(temp);\n",
+        "\n",
+        "print(temperatures);"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nnAxTWpoUQll",
+        "outputId": "8b9dcda0-d036-42b1-b3cd-1d01f087b39a"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[15, 40, 65, 90, 115, 140]\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
